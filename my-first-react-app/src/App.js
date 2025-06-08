@@ -2,14 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import CurrentTime from './components/CurrentTime/CurrentTime';
 import EventCard from './components/EventCard/EventCard';
-// import Counter from "./components/Counter/Counter";
+import Counter from "./components/Counter/Counter";
 
 function App() {
   return (
     <div className="App">
       <Greeting />
       <CurrentTime />
-      {/*<Counter />*/}
+      <Counter />
       <EventCard name='Свадьба' date='13 май' location='Челябинск'/>
       <EventCard name='Юбилей' date='17 июнь' location='Екатеринбург'/>
     </div>

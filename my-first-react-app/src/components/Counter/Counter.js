@@ -1,17 +1,17 @@
 import {useState} from "react";
 
-function Timer() {
-  const [value, setValue] = useState();
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  }
-  return(
-    <div>
-      <p>{value}</p>
-    </div>
-  );
-}
+// function Timer() {
+//   const [value, setValue] = useState();
+//
+//   const handleChange = (event) => {
+//     setValue(event.target.value);
+//   }
+//   return(
+//     <div>
+//       <p>{value}</p>
+//     </div>
+//   );
+// }
 // function TodoList() {
 //   const [value, setValue] = useState();
 //   const [elem, setElem] = useState();
@@ -46,21 +46,21 @@ function Timer() {
 //   );
 // }
 
-// function Counter() {
-//   const [count, setCount] = useState(0);
-//
-//   const upCount = () => {
-//     setCount(count + 1);
-//   }
-//   return(
-//     <div>
-//       <p>{count}</p>
-//       <button onClick={upCount}>Увеличить число</button>
-//     </div>
-//   );
-// }
+function Counter() {
+  const [count, setCount] = useState(0);
 
-export default Timer;
+  const upCount = () => {
+    setCount(count + 1);
+  }
+  return(
+    <div>
+      <p>{count}</p>
+      <button onClick={upCount}>Увеличить число</button>
+    </div>
+  );
+}
+
+// export default Timer;
 // export default TodoList;
 // export default TextInput;
-// export default Counter;
+export default Counter;
