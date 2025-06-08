@@ -1,13 +1,19 @@
 import './App.css';
 import CurrentTime from './components/CurrentTime/CurrentTime';
 import Counter from "./components/Counter/Counter";
+import TextInput from "./components/TextInput/TextInput";
+import TodoList from "./components/TodoList/TodoList";
+import Timer from "./components/Timer/Timer";
 
 function App() {
   return (
     <div className="App">
       <Greeting />
       <CurrentTime />
-      <Counter />
+      {/*<Counter />*/}
+      <TextInput />
+      <TodoList />
+      <Timer />
     </div>
   );
 }
