@@ -1,14 +1,27 @@
+import {useEffect} from "react";
 const {useState} = require("react");
 
 function Timer() {
-  const [value, setValue] = useState();
+  const [time, setTime] = useState(0);
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const start = () => {
+    setTime(time + 1);
   }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      // setTime(time + 1);
+    }, 1000);
+    // return () => {
+    //   clearInterval(timer);
+    // }
+  });
   return(
     <div>
-      <p>{value}</p>
+      <p>{time}</p>
+      <button onClick={start}>Старт</button>
+      <button>Стоп</button>
+      <button>Очистить</button>
     </div>
   );
 }
