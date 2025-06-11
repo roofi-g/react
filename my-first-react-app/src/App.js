@@ -12,8 +12,8 @@ function App() {
       <CurrentTime />
       {/*<Counter />*/}
       {/*<TextInput />*/}
-      <TodoList />
-      {/*<Timer />*/}
+      {/*<TodoList />*/}
+      <Timer />
     </div>
   );
 }
