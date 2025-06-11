@@ -3,10 +3,18 @@ import ReactDOM from "react-dom/client";
 import bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+function Message(props) {
+  return (
+    <div>
+      <p>{props.message.text} <span>{props.message.author}</span></p>
+    </div>
+  )
+}
+
 function App() {
-  const [textMassage, setTextMassage] = useState([
-    "Привет!",
-    "Как дела?"
+  const [messageList, setMessageList] = useState([
+    {id: 1, text: "Привет!", author: "Roofi"},
+    {id: 2, text: "Привет!", author: "Roofi"}
   ]);
   const [text, setText] = useState();
 
@@ -15,13 +23,23 @@ function App() {
   }
   function addText(e) {
     e.preventDefault();
-    setTextMassage([...textMassage, text])
+    const newMessage = {
+      text,
+      author: ''
+    }
+    setMessageList([...messageList, newMessage])
   }
-  const data = textMassage.map(massage => <div>{massage}</div>)
+
+  // useEffect(() => {
+  //   console.log(count);
+  // }, [count]);
 
   return (
     <div>
-      <p>{ data }</p>
+      <p>{ messageList.map(message =>
+        <Message message={message} key={message.id}/>
+      )}
+      </p>
       <form onSubmit={addText}>
         <input className="input-data" value={text} type="text" onChange={printText}/>
         <input type="submit" value="Добавить"/>
