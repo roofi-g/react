@@ -11,9 +11,9 @@ function App() {
       <Greeting />
       <CurrentTime />
       {/*<Counter />*/}
-      <TextInput />
+      {/*<TextInput />*/}
       <TodoList />
-      <Timer />
+      {/*<Timer />*/}
     </div>
   );
 }
