@@ -6,10 +6,14 @@ function Counter() {
   const upCount = () => {
     setCount(count + 1);
   }
+  const downCount = () => {
+    setCount(count - 1);
+  }
   return(
     <div>
       <p>{count}</p>
       <button onClick={upCount}>Увеличить число</button>
+      <button onClick={downCount}>Уменьшить число</button>
     </div>
   );
 }
