@@ -1,0 +1,9 @@
+.todoList {
+    width: 20%;
+    text-align: left;
+    margin-left: 20px;
+}
+.todoList ul {
+    list-style-type: decimal;
+    padding-left: 20px;
+}

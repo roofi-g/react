@@ -1,8 +1,11 @@
+import './TodoList.css'
 const {useState} = require("react");
 
 function TodoList() {
   const [value, setValue] = useState('');
-  const [elem, setElem] = useState([]);
+  const [elem, setElem] = useState([
+    {text: 'Новая заметка'}
+  ]);
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -10,17 +13,15 @@ function TodoList() {
 
   const addElementInList = (e) => {
     e.preventDefault();
-    console.log(value.trim())
     if (!value.trim()) return;
     setElem([...elem, {text: value}]);
     setValue('')
   }
-
   return(
-    <div>
-      <form onClick={addElementInList}>
+    <div className={"todoList"}>
+      <form>
         <input type="text" value={value} onChange={handleChange}/>
-        <button>Добавить</button>
+        <button onClick={addElementInList}>Добавить</button>
       </form>
       <ul>
         {elem.map(el => <li>{el.text}</li>)}
