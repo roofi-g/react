@@ -1,27 +1,35 @@
-import {useEffect} from "react";
-const {useState} = require("react");
+import {useEffect, useRef, useState} from "react";
 
 function Timer() {
-  const [time, setTime] = useState(0);
+  const initialValue = 0;
+  const [time, setTime] = useState(initialValue);
 
-  const start = () => {
-    setTime(time + 1);
-  }
+  const [active, setActive] = useState(false);
+  // const stopRef = useRef(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      // setTime(time + 1);
-    }, 1000);
-    // return () => {
-    //   clearInterval(timer);
-    // }
-  });
+    if (!active) return;
+    // if (stopRef.current) return;
+    console.log('⏰ ')
+
+    function onTimeout() {
+      setTime(time => time + 1);
+    }
+    const timeoutId = setInterval(onTimeout, 1000);
+    setTimeout(() => { clearInterval(timeoutId) }, 5000);
+
+    return () => {
+      clearInterval(timeoutId);
+    };
+  }, [time, active]);
+
   return(
     <div>
       <p>{time}</p>
-      <button onClick={start}>Старт</button>
-      <button>Стоп</button>
-      <button>Очистить</button>
+      <button onClick={() => setActive(true)}>Старт</button>
+      <button onClick={() => setActive(false)}>Стоп</button>
+      {/*<button onClick={() => stopRef.current = true}>Стоп</button>*/}
+      <button onClick={() => setTime(initialValue)}>Очистить</button>
     </div>
   );
 }
