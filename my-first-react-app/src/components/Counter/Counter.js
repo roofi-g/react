@@ -1,4 +1,5 @@
 import {useState} from "react";
+import Button from "@mui/material/Button";
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -12,8 +13,8 @@ function Counter() {
   return(
     <div>
       <p>{count}</p>
-      <button onClick={upCount}>Увеличить число</button>
-      <button onClick={downCount}>Уменьшить число</button>
+      <Button variant="container" onClick={upCount}>Увеличить число</Button>
+      <Button onClick={downCount}>Уменьшить число</Button>
     </div>
   );
 }
