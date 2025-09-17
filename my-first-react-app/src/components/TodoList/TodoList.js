@@ -3,8 +3,8 @@ const {useState} = require("react");
 
 function TodoList() {
   const [value, setValue] = useState('');
-  const [elem, setElem] = useState([
-    {text: 'Новая заметка'}
+  const [items, setItems] = useState([
+    {id: 1, text: 'Новая заметка'}
   ]);
 
   const handleChange = (event) => {
@@ -14,9 +14,14 @@ function TodoList() {
   const addElementInList = (e) => {
     e.preventDefault();
     if (!value.trim()) return;
-    setElem([...elem, {text: value}]);
+    setItems([...items, {id: items.length + 1, text: value}]);
     setValue('')
   }
+
+  function deleteElementFromList(element) {
+    setItems(prevItems => prevItems.filter(el => el.id !== element.id))
+  }
+
   return(
     <div className={"todoList"}>
       <form>
@@ -24,7 +29,7 @@ function TodoList() {
         <button onClick={addElementInList}>Добавить</button>
       </form>
       <ul>
-        {elem.map(el => <li>{el.text}</li>)}
+        {items.map(el => <li key={el.id}>{el.id}. {el.text} <button onClick={() => deleteElementFromList(el)}>Удалить</button></li>)}
       </ul>
     </div>
   );
