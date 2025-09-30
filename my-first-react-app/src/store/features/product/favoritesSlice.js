@@ -3,21 +3,16 @@ import {createSlice} from "@reduxjs/toolkit";
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState: {
-    favorites: [
-      {
-        id: Date.now(),
-        name: 'Название товара',
-        description: 'Описание товара',
-        price: 0
-      }
-    ]
+    favorites: [2,4]
   },
   reducers: {
-    addProduct: (state, actions) => {
-
+    addProduct: (state, action) => {
+      const newArr = [...state.favorites, action.payload.id];
+      return state = {...state, favorites: newArr};
     },
-    deleteProduct: (state, actions) => {
-
+    deleteProduct: (state, action) => {
+      const newArr = state.favorites.filter(el => el !== action.payload.id);
+      return state = {...state, favorites: newArr};
     }
   }
 })
