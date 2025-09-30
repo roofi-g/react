@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {addTodo} from "./toDoSlice";
+import Button from "../../../components/UI/button/Button";
 
 export default function ToDoInput() {
   const [value, setValue] = useState('');
@@ -27,7 +28,7 @@ export default function ToDoInput() {
         value={value}
         onChange={(event) => setValue(event.target.value)}
       />
-      <button onClick={addElement}>Добавить</button>
+      <Button text={'Добавить'} onClick={addElement}/>
     </div>
   )
 }

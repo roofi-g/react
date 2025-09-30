@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {checked, deleteTodo} from "./toDoSlice";
+import Button from "../../../components/UI/button/Button";
 
 export default function ToDoItem(props) {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export default function ToDoItem(props) {
         />
         <p>{props.elem.description}</p>
       </div>
-      <button onClick={() => dispatch(deleteTodo(props.elem.id))}>Удалить</button>
+      <Button text={'Удалить'} onClick={() => dispatch(deleteTodo(props.elem.id))}/>
     </li>
   );
 }
