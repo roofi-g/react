@@ -4,6 +4,8 @@ import counterReducer from "../features/counter(Toolkit)/counterSlice";
 import profileReducer from "../features/profile/profileSlice";
 import themeReducer from "../features/theme/themeSlice";
 import toDoReducer from "../features/todo/toDoSlice";
+import productsReducer from "../features/product/productsSlice";
+import favoritesReducer from "../features/product/favoritesSlice";
 
 // toolkit
 const store = configureStore({
@@ -12,6 +14,8 @@ const store = configureStore({
     profile: profileReducer,
     theme: themeReducer,
     todoList: toDoReducer,
+    products: productsReducer,
+    favorites: favoritesReducer,
   }
 })
 

@@ -4,6 +4,7 @@ import Counter from "./features/counter(Toolkit)/Counter";
 import Profile from "./features/profile/Profile";
 import Theme from "./features/theme/Theme";
 import ToDo from "./features/todo/ToDo";
+import ProductsList from "./features/product/ProductsList";
 
 export default function AppStore() {
   return (
@@ -11,7 +12,8 @@ export default function AppStore() {
       {/*<Counter />*/}
       {/*<Profile />*/}
       {/*<Theme />*/}
-      <ToDo />
+      {/*<ToDo />*/}
+      <ProductsList />
     </Provider>
   )
 }
