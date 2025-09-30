@@ -11,25 +11,25 @@ const productsSlice = createSlice({
         price: 1000
       },
       {
-        id: Date.now(),
+        id: 2,
         name: 'Название товара 2',
         description: 'Описание товара',
         price: 2000
       },
       {
-        id: Date.now(),
+        id: 3,
         name: 'Название товара 3',
         description: 'Описание товара',
         price: 3000
       },
       {
-        id: Date.now(),
+        id: 4,
         name: 'Название товара 4',
         description: 'Описание товара',
         price: 2000
       },
       {
-        id: Date.now(),
+        id: 5,
         name: 'Название товара 5',
         description: 'Описание товара',
         price: 1000
