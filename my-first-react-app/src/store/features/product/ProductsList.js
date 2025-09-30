@@ -5,6 +5,11 @@ export default function ProductsList() {
   const products = useSelector(state => state.products.products);
   const favorites = useSelector(state => state.favorites.favorites);
 
+  const showListFavoritesProduct = () => {
+    const favoritesProduct = products.filter(product => favorites.includes(product.id));
+    return favoritesProduct.map(product => <Product key={product.id} product={product} />);
+  }
+
   return (
     <div>
       <h2>Список товаров</h2>
@@ -23,9 +28,7 @@ export default function ProductsList() {
         justifyContent: 'space-evenly',
         flexWrap: 'wrap',
       }}>
-        {
-          favorites.map(product => <Product key={product.id} product={product} />)
-        }
+        { showListFavoritesProduct() }
       </div>
     </div>
   )
