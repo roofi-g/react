@@ -21,10 +21,11 @@ const productsList = createSlice({
     ]
   },
   reducers: {
-    addProduct: () => {
-
+    addProduct: (state, action) => {
+      const newArr = [...state.products, action.payload];
+      return state = {...state, products: newArr};
     },
-    deleteProduct: () => {
+    deleteProduct: (state, action) => {
 
     },
     updateDataProduct: () => {
