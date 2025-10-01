@@ -1,9 +1,16 @@
-export default function Product({ product }) {
+import { useDispatch } from "react-redux";
+import {deleteProduct, updateDataProduct} from "./productsSlice";
+import { useState } from "react";
+import Form from "./Form";
 
-  const style_div = {
-    margin: '12px 0px',
-    display: 'flex',
-    justifyContent: 'space-between',
+export default function Product({ product }) {
+  let [show, setShow] = useState(true);
+
+  const dispatch = useDispatch();
+
+  const sendData = (name, description, price, available) => {
+    setShow(show = !show);
+    dispatch(updateDataProduct({product: product.id, name, description, price, available}));
   }
 
   return (
@@ -11,32 +18,20 @@ export default function Product({ product }) {
       border: '1px solid red',
       padding: '10px'
     }}>
-      <div>
-        <h3>{ product.name }</h3>
-        <p>{ product.description }</p>
-        <p>Цена: { product.price } руб</p>
-        <p>Количество: { product.available }</p>
-      </div>
-      <div>
-        <div style={ style_div }>
-          <label htmlFor="">Новое название:</label>
-          <input type="text"/>
-        </div>
-        <div style={ style_div }>
-          <label htmlFor="">Новое описание:</label>
-          <input type="text"/>
-        </div>
-        <div style={ style_div }>
-          <label htmlFor="">Цена:</label>
-          <input type="text"/>
-        </div>
-        <div style={ style_div }>
-          <label htmlFor="">Количество:</label>
-          <input type="text"/>
-        </div>
-      </div>
-      <button>Удалить</button>
-      <button>Редактировать</button>
+      {show ? (
+        <>
+          <div>
+            <h3>{ product.name }</h3>
+            <p>{ product.description }</p>
+            <p>Цена: { product.price } руб</p>
+            <p>Количество: { product.available }</p>
+          </div>
+          <button onClick={() => setShow(false)}>Редактировать</button>
+        </>
+      ) : (
+        <Form onSendData={sendData} buttonLabel={'Сохранить'} product={product}/>
+      )}
+      <button onClick={() => dispatch(deleteProduct(product.id))}>Удалить</button>
     </div>
   )
 }
