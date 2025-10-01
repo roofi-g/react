@@ -26,7 +26,8 @@ const productsList = createSlice({
       return state = {...state, products: newArr};
     },
     deleteProduct: (state, action) => {
-
+      const newArr = state.products.filter(el => el.id !== action.payload);
+      return state = {...state, products: newArr};
     },
     updateDataProduct: () => {
 
