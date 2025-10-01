@@ -29,8 +29,12 @@ const productsList = createSlice({
       const newArr = state.products.filter(el => el.id !== action.payload);
       return state = {...state, products: newArr};
     },
-    updateDataProduct: () => {
-
+    updateDataProduct: (state, action) => {
+      const product = state.products.find(el => el.id === action.payload.product);
+      product.name = action.payload.name;
+      product.description = action.payload.description;
+      product.price = action.payload.price;
+      product.available = action.payload.available;
     },
     changeAvailableProduct: () => {
 
