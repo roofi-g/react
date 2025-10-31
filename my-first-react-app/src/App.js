@@ -16,6 +16,7 @@ import AppContext from "./Context/Context";
 import AppHoc from "./HOC/Hoc";
 import CounterRedux from "./store/features/counter/Counter";
 import AppStore from "./store/AppStore";
+import Api from "./api/api";
 
 function App() {
   return (
@@ -36,7 +37,8 @@ function App() {
       {/*<AppRouter />*/}
       {/*<AppContext />*/}
       {/*<AppHoc />*/}
-      <AppStore />
+      {/*<AppStore />*/}
+      <Api />
     </div>
   );
 }
